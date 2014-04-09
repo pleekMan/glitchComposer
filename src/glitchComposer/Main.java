@@ -28,10 +28,22 @@ public class Main extends PApplet{
 	}
 
 	public void draw(){
-		background(125);
+		background(0);
+		
+		drawTileBackground();
 		
 		nodeManager.render();
 
+	}
+	
+	private void drawTileBackground(){
+		stroke(50);
+		int x = 0;
+		while (x < width) {
+			line(x,0,x,height);
+			x += 4;
+		}
+		
 	}
 
 	public void keyPressed(){
@@ -49,11 +61,18 @@ public class Main extends PApplet{
 		}
 		
 		if(key == '4'){
+			nodeManager.addNode("pxOffset");
+		}
+		
+		
+		if(key == '0'){
 			nodeManager.addNode("outputImage");
 		}
 
 		
-		
+		if(key == 's' || key == 'S'){
+			nodeManager.operateManual(1);
+		}
 		
 		if(key == 'e' || key == 'E'){
 			nodeManager.evaluateChain();

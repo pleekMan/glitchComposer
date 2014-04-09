@@ -1,4 +1,5 @@
 package glitchComposer;
+import glitchComposer.globals.PAppletSingleton;
 import processing.core.PImage;
 
 public class OutputDisplayer {
@@ -7,11 +8,16 @@ public class OutputDisplayer {
 	
 	PImage outputImage;
 	
-	public OutputDisplayer(Main _p5){
+	public OutputDisplayer(){
 		
-		p5 = _p5;
+		p5 = getP5();
 		
 		outputImage = new PImage(); // THIS INITIALIZATION COULD BRING PROBLEMS
+	}
+	
+	// P5 SINGLETON
+	protected Main getP5() {
+		return PAppletSingleton.getInstance().getP5Applet();
 	}
 	
 	public void setImage(PImage imageOut){

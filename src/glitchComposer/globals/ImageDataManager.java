@@ -42,6 +42,10 @@ public class ImageDataManager {
 	public ImageData getLastImageData() {
 		return imageDatas.get(imageDatas.size() - 1);
 	}
+	
+	public int getLastImageDataId(){
+		return imageDatas.get(imageDatas.size() - 1).getId();
+	}
 
 	public boolean hasImages() {
 		return imageDatas.isEmpty() ? false : true;

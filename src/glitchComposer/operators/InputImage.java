@@ -12,12 +12,15 @@ public class InputImage extends Operator{
 	NodeManager nodeManagerLink;
 	boolean isFinishedLoading = false;
 	//int imageDataId = 0;
+	
+	ImageDataManager imageDataManager;
 
 
 	public InputImage(NodeManager _nodeManager, int x, int y, int id){
 		super(x, y, id);
 
 		nodeManagerLink = _nodeManager;
+		imageDataManager = getImageDataManager();
 		
 	}
 		
@@ -27,6 +30,11 @@ public class InputImage extends Operator{
 	}
 	public void operate(){
 		
+	}
+	
+	// ImageDataManager SINGLETON
+	protected ImageDataManager getImageDataManager(){
+		return ImageDataManager.getInstance();
 	}
 	
 	public void selectImageInput(){

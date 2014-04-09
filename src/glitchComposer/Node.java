@@ -19,7 +19,7 @@ public class Node {
 	public Node(int x, int y, int id) {
 
 		p5 = getP5();
-		;
+		
 
 		pos = new PVector(x, y);
 
@@ -42,8 +42,9 @@ public class Node {
 		p5.rect(pos.x, pos.y, width, height);
 		p5.fill(255);
 		p5.text(name, pos.x + 2, pos.y - 2);
+		p5.text(id, pos.x + 2, pos.y - 20);
 
-		drawConnector();
+		//drawConnector();
 	}
 
 	public int getId() {

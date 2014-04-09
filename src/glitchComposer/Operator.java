@@ -2,22 +2,24 @@ package glitchComposer;
 
 import glitchComposer.globals.ImageData;
 import glitchComposer.globals.ImageDataManager;
+import processing.core.PImage;
 
 public class Operator extends Node {
 
-	protected ImageDataManager imageDataManager;
-	protected ImageData imageDataLink;
+	//protected ImageDataManager imageDataManager;
+	protected ImageData imageDataLink; 
+	protected int imageDataID; // ESTOS 2 SON LOS MISMO. PARA PROBAR DIFERENTES METODOS
 
 	int tempLiteral;
 	int input;
 	int output;
 
-	Node parentNode;
+	Node inNode;
 
 	public Operator(int x, int y, int id) {
 		super(x, y, id);
 
-		imageDataManager = getImageDataManager();
+		//imageDataManager = getImageDataManager();
 
 		tempLiteral = (int) (p5.random(10));
 		input = 0;
@@ -38,17 +40,23 @@ public class Operator extends Node {
 	public void setImageDataLink(ImageData _imageData) {
 		imageDataLink = _imageData;
 	}
+	
+	public void setImageDataLink(int _imageData) {
+		imageDataID = _imageData;
+	}
 
+	/*
 	public void setInput(int inputData) {
 		input = inputData;
 	}
+	*/
 
 	@Override
-	public void setInNode(Node inNode) {
-
+	public void setInNode(Node _inNode) {
+		inNode = _inNode;
 	}
 	@Override
-	public void setOutNode(Node outNode) {
+	public void setOutNode(Node _outNode) {
 
 	}
 
@@ -56,14 +64,18 @@ public class Operator extends Node {
 
 	}
 
+	/*
 	public int getOutput() {
 		return output;
 	}
-
+	*/
+	
+	/*
 	@Override
 	public void setParentNode(Node _parentNode) {
 		parentNode = _parentNode;
 	}
+	*/
 
 	protected void drawConnector() {
 
@@ -73,8 +85,8 @@ public class Operator extends Node {
 		float pointX1 = pos.x;
 		float pointY1 = pos.y + (height * 0.5f);
 
-		float pointX2 = parentNode.pos.x + parentNode.width;
-		float pointY2 = parentNode.pos.y + (parentNode.height * 0.5f);
+		float pointX2 = inNode.pos.x + inNode.width;
+		float pointY2 = inNode.pos.y + (inNode.height * 0.5f);
 
 		p5.line(pointX1, pointY1, pointX2, pointY2);
 

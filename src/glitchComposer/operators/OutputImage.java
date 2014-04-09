@@ -25,7 +25,7 @@ public class OutputImage extends Operator{
 	
 	public void operate(){
 		imageOut = imageDataLink.getPxData().get();
-		imageOut.mask(imageDataLink.getPxSelection());
+		//imageOut.mask(imageDataLink.getPxSelection());
 		
 		// EVERYTIME THIS NODES OPERATES, IT UPDATES THE LINKED OutputDisplayer
 		displayer.setImage(imageOut);
